@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Students</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            🎓 Student Records
+        </div>
+
+        <div class="nav-title">
+            Cloud Database Management System
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="students-header">
+
+            <div>
+
+                <h1>Student Records</h1>
+
+                <p>
+                    All student records stored in MongoDB Atlas.
+                </p>
+
+            </div>
+
+            <a href="/add" class="primary-button">
+                ➕ Add Student
+            </a>
+
+        </section>
+
+
+        {% if students %}
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Roll Number</th>
+                        <th>Course</th>
+                        <th>Year</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for student in students %}
+
+                    <tr>
+
+                        <td>{{ student.name }}</td>
+
+                        <td>{{ student.roll_number }}</td>
+
+                        <td>{{ student.course }}</td>
+
+                        <td>{{ student.year }}</td>
+
+                        <td>{{ student.email }}</td>
+
+                        <td>
+
+                            <a
+                                href="/edit/{{ student._id }}"
+                                class="edit-button">
+                                ✏️ Edit
+                            </a>
+
+                            <a
+                               href="/delete/{{ student._id }}"
+                               class="delete-button"
+                               onclick="return confirm('Are you sure you want to delete this student?');">
+                               🗑️ Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                📚
+            </div>
+
+            <h2>No Students Found</h2>
+
+            <p>
+                There are currently no student records in the database.
+            </p>
+
+            <a href="/add" class="primary-button">
+                Add Your First Student
+            </a>
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="back-link">
+
+            <a href="/">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Student Record Management System |
+            Cloud Computing Mini Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Student</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            🎓 Student Records
+        </div>
+
+        <div class="nav-title">
+            Cloud Database Management System
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="form-container">
+
+            <h1>🔍 Search Student</h1>
+
+            <p class="form-description">
+                Search for a student using their name or roll number.
+            </p>
+
+
+            <form action="/search" method="GET">
+
+                <div class="form-group">
+
+                    <label for="query">
+                        Student Name or Roll Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="query"
+                        name="query"
+                        placeholder="Enter name or roll number"
+                        value="{{ query }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="primary-button">
+                        🔍 Search
+                    </button>
+
+                    <a
+                        href="/"
+                        class="secondary-button">
+                        ← Dashboard
+                    </a>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        {% if searched %}
+
+            {% if students %}
+
+                <section class="students-header">
+
+                    <div>
+
+                        <h1>Search Results</h1>
+
+                        <p>
+                            Students matching "{{ query }}"
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Name</th>
+                                <th>Roll Number</th>
+                                <th>Course</th>
+                                <th>Year</th>
+                                <th>Email</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for student in students %}
+
+                            <tr>
+
+                                <td>{{ student.name }}</td>
+
+                                <td>{{ student.roll_number }}</td>
+
+                                <td>{{ student.course }}</td>
+
+                                <td>{{ student.year }}</td>
+
+                                <td>{{ student.email }}</td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        🔍
+                    </div>
+
+                    <h2>No Student Found</h2>
+
+                    <p>
+                        No student matched "{{ query }}".
+                    </p>
+
+                    <a href="/search" class="primary-button">
+                        Search Again
+                    </a>
+
+                </div>
+
+            {% endif %}
+
+        {% endif %}
+
+
+        <div class="back-link">
+
+            <a href="/">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Student Record Management System |
+            Cloud Computing Mini Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

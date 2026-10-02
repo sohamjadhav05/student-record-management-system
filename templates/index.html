@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Record Management System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            🎓 Student Records
+        </div>
+
+        <div class="nav-title">
+            Cloud Database Management System
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+            <div>
+                <h1>Student Record Management System</h1>
+
+                <p>
+                    Manage student information efficiently using
+                    a Flask web application connected to
+                    MongoDB Atlas cloud database.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <h3>Student Records</h3>
+                <p>Manage all student information</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">☁️</div>
+                <h3>Cloud Database</h3>
+                <p>Powered by MongoDB Atlas</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <h3>Easy Management</h3>
+                <p>Fast CRUD operations</p>
+            </div>
+
+        </section>
+
+
+        <section class="actions">
+
+            <h2>Student Management</h2>
+
+            <div class="action-grid">
+
+                <a href="/students" class="action-card">
+                    <span class="action-icon">👥</span>
+                    <h3>View Students</h3>
+                    <p>View all registered students</p>
+                </a>
+
+
+                <a href="/add" class="action-card">
+                    <span class="action-icon">➕</span>
+                    <h3>Add Student</h3>
+                    <p>Add a new student record</p>
+                </a>
+
+
+                <a href="/search" class="action-card">
+                    <span class="action-icon">🔍</span>
+                    <h3>Search Student</h3>
+                    <p>Find a student quickly</p>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section class="cloud-section">
+
+            <div class="cloud-icon">☁️</div>
+
+            <div>
+                <h2>MongoDB Atlas Cloud Database</h2>
+
+                <p>
+                    Student records are stored securely in a
+                    cloud-hosted MongoDB database. The Flask
+                    application communicates with MongoDB Atlas
+                    using PyMongo.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Student Record Management System |
+            Cloud Computing Mini Project
+        </p>
+    </footer>
+
+</body>
+</html>

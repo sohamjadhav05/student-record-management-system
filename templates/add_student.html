@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Student</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            🎓 Student Records
+        </div>
+
+        <div class="nav-title">
+            Cloud Database Management System
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <section class="form-container">
+
+            <h1>Add New Student</h1>
+
+            <p class="form-description">
+                Enter the student's details below. The record will be
+                stored in the MongoDB Atlas cloud database.
+            </p>
+
+
+            <form action="/add" method="POST">
+
+                <div class="form-group">
+                    <label for="name">Student Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter student name"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="roll_number">Roll Number</label>
+
+                    <input
+                        type="text"
+                        id="roll_number"
+                        name="roll_number"
+                        placeholder="Enter roll number"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="course">Course</label>
+
+                    <input
+                        type="text"
+                        id="course"
+                        name="course"
+                        placeholder="e.g. Computer Engineering"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="year">Year</label>
+
+                    <select id="year" name="year" required>
+
+                        <option value="">Select year</option>
+
+                        <option value="1">1st Year</option>
+
+                        <option value="2">2nd Year</option>
+
+                        <option value="3">3rd Year</option>
+
+                        <option value="4">4th Year</option>
+
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email address"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <button type="submit" class="primary-button">
+                        ➕ Add Student
+                    </button>
+
+                    <a href="/" class="secondary-button">
+                        ← Back to Dashboard
+                    </a>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Student Record Management System |
+            Cloud Computing Mini Project
+        </p>
+    </footer>
+
+</body>
+</html>

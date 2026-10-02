@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Student</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            🎓 Student Records
+        </div>
+
+        <div class="nav-title">
+            Cloud Database Management System
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="form-container">
+
+            <h1>✏️ Edit Student</h1>
+
+            <p class="form-description">
+                Update the student's information below.
+            </p>
+
+
+            <form action="/edit/{{ student._id }}" method="POST">
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value="{{ student.name }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="roll_number">
+                        Roll Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="roll_number"
+                        name="roll_number"
+                        value="{{ student.roll_number }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="course">
+                        Course
+                    </label>
+
+                    <input
+                        type="text"
+                        id="course"
+                        name="course"
+                        value="{{ student.course }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="year">
+                        Year
+                    </label>
+
+                    <select
+                        id="year"
+                        name="year"
+                        required
+                    >
+
+                        <option value="1"
+                            {% if student.year == "1" %}selected{% endif %}>
+                            1st Year
+                        </option>
+
+                        <option value="2"
+                            {% if student.year == "2" %}selected{% endif %}>
+                            2nd Year
+                        </option>
+
+                        <option value="3"
+                            {% if student.year == "3" %}selected{% endif %}>
+                            3rd Year
+                        </option>
+
+                        <option value="4"
+                            {% if student.year == "4" %}selected{% endif %}>
+                            4th Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value="{{ student.email }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="primary-button">
+                        💾 Save Changes
+                    </button>
+
+                    <a
+                        href="/students"
+                        class="secondary-button">
+                        ← Cancel
+                    </a>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Student Record Management System |
+            Cloud Computing Mini Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
